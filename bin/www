@@ -1,0 +1,74 @@
+var app = require('../app');
+var debug = require('debug')('e-commerce:server');
+const mongoose = require('mongoose');
+const express= require('express');
+const apps = express();
+var http = require('http');
+require('dotenv').config()
+const bodyParser = require('body-parser')
+const url = process.env.DB_url;
+app.use(bodyParser.json())
+
+
+// connect with the help of Mongoose
+
+mongoose.connect(url, {
+  useNewUrlParser: true,
+});
+
+// DataBaseConnectivity
+
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("DB is connected");
+});
+
+// Server Connection----****---->
+
+app.listen(3000, () => {
+  console.log("listening .....");
+});
+
+
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+// var port = normalizePort(process.env.PORT || '3000');
+// app.set('port', port);
+
+// /**
+//  * Create HTTP server.
+//  */
+
+// var server = http.createServer(app);
+
+// /**
+//  * Listen on provided port, on all network interfaces.
+//  */
+
+// server.listen(port);
+// server.on('error', onError);
+// server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+// function normalizePort(val) {
+//   var port = parseInt(val, 10);
+
+//   if (isNaN(port)) {
+//     // named pipe
+//     return val;
+//   }
+
+//   if (port >= 0) {
+//     // port number
+//     return port;
+//   }
+
+//   return false;
+// }
+
