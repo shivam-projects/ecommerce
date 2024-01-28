@@ -5,6 +5,8 @@ const productRouter = require('./routes/product')
 const cartRouter= require("./routes/cart")
 const orderRouter= require('./routes/order')
 const paymentRouter= require('./routes/payment')
+const brandRouter = require('./routes/brand');
+
 const bodyParser = require('body-parser')
 
 var app = express();
@@ -17,6 +19,7 @@ app.use('/ecommerce', productRouter);
 app.use('/ecommerce',  cartRouter);
 app.use('/ecommerce/orders',  orderRouter);
 app.use('/ecommerce', paymentRouter)
+app.use('/ecommerce/brand', brandRouter)
 module.exports = app;
 
 //Connect hbs
