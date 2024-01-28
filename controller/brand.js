@@ -4,10 +4,10 @@ const _brand = {}
 
 _brand.create = async (req,res)=>{
         const {name} = req.body;
-        const images = req.file
-        const bSave= {name};
-        const brandDetails = await Brand.create(bSave);
-        return res.send(brandDetails);
+        const image = req.file
+        const brand= {name, image: image.path};
+        const brandDetails = await Brand.create(brand);
+        return res.status(201).json(brandDetails);
     };
 
 module.exports = _brand;
