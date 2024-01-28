@@ -6,7 +6,7 @@ const brandSchema = mongoose.Schema({
         required: true,
         maxlength: 32
     },
-    images: {
+    image: {
         type: Array,
         required: true
     },
